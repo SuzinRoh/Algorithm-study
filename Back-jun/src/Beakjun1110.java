@@ -14,18 +14,28 @@ public class Beakjun1110 {
 			n = "0"+n;
 		}
 		String tmp ="";
-		
+
+		int a = Integer.parseInt(n.substring(0,1)); 
+		int b = Integer.parseInt(n.substring(1,2));
+
 		while(true) {
-	
-			int a = Integer.parseInt(n.substring(0,1));
-			int b = Integer.parseInt(n.substring(1,2));
 			tmp = (a+b)+"";
+			if(a+b > 9) {
+				tmp = a+b+"";
+				tmp = tmp.substring(1,2);
+			}
 			tmp = b + tmp;
-			System.out.println(tmp);
-			if(tmp.equals(n)) break;
+			if(!tmp.equals(n)) {
+				a = Integer.parseInt(tmp.substring(0,1));
+				b = Integer.parseInt(tmp.substring(1,2));
+				tmp= "";
+			} else {
+				cnt++;
+				break;
+			}
 			cnt++;
-		}
-		
+		}			
+		System.out.println(cnt);
 	}
 
 }
