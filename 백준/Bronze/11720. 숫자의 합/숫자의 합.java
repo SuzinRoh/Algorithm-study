@@ -6,12 +6,11 @@ public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(bf.readLine());
-    String [] numberOfSum = bf.readLine().split("");
+    String number = bf.readLine();
 
     int sum = 0;
-    for (String str : numberOfSum) {
-      if (n-- < 0) break;
-      sum += Integer.parseInt(str);
+    for (int i=0; i<n; i++) {
+      sum += Character.getNumericValue(number.charAt(i));
     }
     System.out.println(sum);
   }
